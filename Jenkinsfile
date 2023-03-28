@@ -22,5 +22,21 @@ pipeline{
         }
 
         // Add the "Deploy" stage here
+        stage('Deploy') {
+
+        steps {
+
+             sh '''
+
+                oc project mzcmxm-greetings
+
+                oc start-build greeting-service --follow --wait
+
+            '''
+
+          }
+
+       }
+
     }
 }
